@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrainStorm Notes Club - Study Together, Succeed Together</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #667eea;
+        }
+
+        /* Subjects Grid */
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .subject-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border: 2px solid #f0f0f0;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
+        }
+
+        .subject-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .subject-card h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .subject-card p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Features */
+        .features {
+            background: #f9f9f9;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .feature-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* About */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .social-links {
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .social-links a:hover {
+            color: #667eea;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Hidden sections */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo" onclick="showSection('home')">⚡ BrainStorm</a>
+            <button class="mobile-menu-btn">☰</button>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showSection('home')">Home</a></li>
+                <li><a href="#" onclick="showSection('browse')">Browse Notes</a></li>
+                <li><a href="#" onclick="showSection('upload')">Upload Notes</a></li>
+                <li><a href="#" onclick="showSection('about')">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <div id="home" class="page-section">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="container">
+                <h1>BrainStorm Notes Club</h1>
+                <p>Smarter notes, stronger grades. Study together, succeed together.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary" onclick="showSection('browse')">Browse Notes</a>
+                    <a href="#" class="btn btn-secondary" onclick="showSection('upload')">Contribute Notes</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Why BrainStorm?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>📚 Organized by Subject</h3>
+                        <p>Find exactly what you need. Notes are categorized by class and topic for easy access.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🤝 Student Collaboration</h3>
+                        <p>Created by students, for students. Share your notes and help others succeed.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>⚡ Always Updated</h3>
+                        <p>Fresh content added regularly. Never miss important study materials.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Browse Notes Section -->
+    <div id="browse" class="page-section hidden">
+        <section>
+            <div class="container">
+                <h2 class="section-title">Browse Notes by Subject</h2>
+                <div class="subjects-grid">
+                    <div class="subject-card" onclick="window.open('https://drive.google.com/drive/folders/1gYncQ-EMBIeKb5XTr-08yZLKEG_ei6Nf', '_blank')">
+                        <div class="subject-icon">📐</div>
+                        <h3>Mathematics</h3>
+                        <p>Algebra, Geometry, Calculus</p>
+                    </div>
+                    <div class="subject-card" onclick="window.open('https://drive.google.com/drive/folders/12MUPfK2Y245BmaI2NWXuVWGxqKsE-Ys8', '_blank')">
+                        <div class="subject-icon">🔬</div>
+                        <h3>Science</h3>
+                        <p>Biology, Chemistry, Physics</p>
+                    </div>
+                    <div class="subject-card" onclick="window.open('https://drive.google.com/drive/folders/1dI15THCLuX9uo9oQkRrbCUdkGP-IB8O5', '_blank')">
+                        <div class="subject-icon">📖</div>
+                        <h3>English</h3>
+                        <p>Literature, Writing, Grammar</p>
+                    </div>
+                    <div class="subject-card" onclick="window.open('https://drive.google.com/drive/folders/1ol_q14Z_-6gOlau2gB1k8kZkNL8uFeox', '_blank')">
+                        <div class="subject-icon">🏛️</div>
+                        <h3>History</h3>
+                        <p>World History, US History</p>
+                    </div>
+                    <div class="subject-card" onclick="window.open('https://drive.google.com/drive/folders/1MunAEUqZ0QBXfpcDLfnrpEDZ8mhABGxm', '_blank')">
+                        <div class="subject-icon">🗣️</div>
+                        <h3>Languages</h3>
+                        <p>Spanish, French, etc.</p>
+                    </div>
+                    <div class="subject-card" onclick="window.open('https://drive.google.com/drive/folders/1p1GkFlX5G23lKvAGlg8Ps24wV8C7jXGF', '_blank')">
+                        <div class="subject-icon">🌍</div>
+                        <h3>Social Studies</h3>
+                        <p>Geography, Economics, Government</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Upload Notes Section -->
+    <div id="upload" class="page-section hidden">
+        <section>
+            <div class="container">
+                <h2 class="section-title">Share Your Notes</h2>
+                <div style="max-width: 800px; margin: 0 auto; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <p style="text-align: center; margin-bottom: 1.5rem; color: #555; font-size: 1.1rem;">
+                        Help your fellow students succeed! Fill out the form below to contribute your notes to BrainStorm.
+                    </p>
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfDpSFqRX7GzToXTG70FzN34DbQE4e0DyR7AEzBabTWBZ2zug/viewform?embedded=true" width="100%" height="1200" frameborder="0" marginheight="0" marginwidth="0" style="border-radius: 8px;">Loading…</iframe>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- About Section -->
+    <div id="about" class="page-section hidden">
+        <section>
+            <div class="container">
+                <h2 class="section-title">About BrainStorm</h2>
+                <div class="about-content">
+                    <p>
+                        BrainStorm Notes Club is a student-run platform dedicated to making quality study materials accessible to everyone. We believe that learning is better together.
+                    </p>
+                    <p>
+                        Our mission is simple: create a space where students can share their notes, help each other understand difficult concepts, and succeed academically as a community.
+                    </p>
+                    <p>
+                        Whether you're catching up on missed classes, preparing for exams, or just want to see different perspectives on a topic, BrainStorm has you covered.
+                    </p>
+                    <h3 style="color: #667eea; margin-top: 2rem;">Join the Community</h3>
+                    <p>Contribute your notes, earn recognition, and help build the best student resource hub!</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 BrainStorm Notes Club. Study together, succeed together.</p>
+            <div class="social-links">
+                <a href="#">Instagram</a>
+                <a href="#">TikTok</a>
+                <a href="#">Discord</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showSection(sectionName) {
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            document.getElementById(sectionName).classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
